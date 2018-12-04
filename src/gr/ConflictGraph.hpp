@@ -11,8 +11,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <vector>
-
 #include "../parser/lefdef/RGReader.h"
+
 
 /*class AP {
 public:
@@ -31,18 +31,21 @@ public:
     DefParser::Net net;
     APC apc1; //TODO: ???
     APC apc2;
+    RouteGuide* rg1;
+    RouteGuide* rg2;
     AP AP1;
     AP AP2;
     double weight;
     int degree;
     
-    //segment()= default;
-    Segment(DefParser::Net net, APC apc1, APC apc2, AP AP1, AP AP2) {
+    Segment(DefParser::Net net, APC apc1, APC apc2, RouteGuide rg1, RouteGuide rg2, AP AP1, AP AP2) {
         this->net = net;
         this->apc1 = apc1;
         this->apc2 = apc2;
         this->AP1 =AP1;
         this->AP2 = AP2;
+        this->rg1 = &rg1;
+        this->rg2 = &rg2;
         this->weight = abs(AP1.x - AP2.x) + abs(AP1.y - AP2.y);
         this->degree = 0;
     }
